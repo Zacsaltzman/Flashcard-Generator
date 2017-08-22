@@ -14,8 +14,8 @@ switch(action) {
 		newCard.readBack();
 		break;
 	case "cloze":
-		var newCard = new ClozeCard(frontText, backCloze);
-		if (newCard.fullText.includes(newCard.cloze)) {
+		if (frontText.includes(backCloze)) {
+			var newCard = new ClozeCard(frontText, backCloze);
 			cards.push(newCard);
 			newCard.readFront();
 			newCard.readBack();
@@ -23,5 +23,8 @@ switch(action) {
 		else {
 			console.log("Cloze not found in Full Text");
 		}
+		break;
+	default:
+		console.log("Please enter a valid command");
 		break;
 }
